@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 10;
-    public float jumpForce = 10;
-
     private Rigidbody2D player;
+    public float jumpForce = 8;
+    public float speed = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -15,25 +14,17 @@ public class PlayerController : MonoBehaviour
         player = GetComponent<Rigidbody2D>();
     }
 
-
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            player.velocity = new Vector2(0, jumpForce);
+            player.velocity = new Vector2(player.velocity.x, jumpForce);
         }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            player.velocity = new Vector2(0, -jumpForce);
-        }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            player.velocity = new Vector2(speed, 0);
-        }
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            player.velocity = new Vector2(-speed, 0);
-        }
+    }
+
+    void FixedUpdate()
+    {
+        player.velocity = new Vector2(speed * Input.GetAxis("Horizontal"), player.velocity.y);
     }
 }
