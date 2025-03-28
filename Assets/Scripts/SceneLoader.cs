@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+public class SceneLoader : MonoBehaviour
 {
-    public void PlayGame()
+    public void LoadScene(string sceneName)
     {
-        SceneManager.LoadSceneAsync("Level_1");
+        SceneManager.LoadScene(sceneName);
     }
 
     public void QuitGame()
