@@ -4,8 +4,19 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    // movimentação
     public float speed = 10;
-    public float jumpForce = 8;
+    public float jumpForce = 16;
+
+    // verificação se player está no chão
+    public Transform groundCheck;
+    public LayerMask groundLayer;
+    private bool isGrounded;
+
+    // permissões de movimentação
+    public bool canMoveLeft = true;
+    public bool canMoveRight = true;
+    public bool canJump = true;
 
     private Rigidbody2D player;
 
@@ -18,39 +29,71 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        jump();
+        isGrounded = Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.8f, 0.3f), CapsuleDirection2D.Horizontal, 0, groundLayer);
+
+        if (isGrounded) 
+        {
+            Jump(canJump);
+        }
     }
 
     void FixedUpdate()
     {
-        walk();
+        Walk(canMoveLeft, canMoveRight);
     }
 
-    void walk(bool left = true, bool right = true)
+    void Walk(bool canMoveLeft, bool canMoveRight)
     {
         float inputX = Input.GetAxis("Horizontal");
 
-        if (!left)
+        if (!canMoveLeft)
         {
-            inputX = inputX > 0 ? inputX : 0;
+            // Verifica se o input no eixo X é menor que zero (se anda pra esquerda)
+            if (inputX < 0) 
+            {
+                inputX = 0;
+            }
         }
 
-        if (!right)
+        if (!canMoveRight)
         {
-            inputX = inputX < 0 ? inputX : 0;
+            // Verifica se o input no eixo X é maior que zero (se anda pra direita)
+            if (inputX > 0)
+            {
+                inputX = 0;
+            }
         }
 
         player.velocity = new Vector2(speed * inputX, player.velocity.y);
     }
 
-    void jump(bool canJump = true)
+    void Jump(bool canJump)
     {
         if (canJump)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            // Pulo com espaço ou setinha pra cima
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
             {
                 player.velocity = new Vector2(player.velocity.x, jumpForce);
             }
+        }
+    }
+
+    public void ChangeMovementPermission(string movement)
+    {
+        switch (movement) 
+        {
+            case "jump":
+                canJump = !canJump;
+                break;
+
+            case "left":
+                canMoveLeft = !canMoveLeft; 
+                break;
+
+            case "right":
+                canMoveRight = !canMoveRight;
+                break;
         }
     }
 }
