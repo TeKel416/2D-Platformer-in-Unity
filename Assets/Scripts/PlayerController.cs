@@ -79,20 +79,38 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void ChangeMovementPermission(string movement)
+    public void EnableMovement(string movement)
     {
         switch (movement) 
         {
             case "jump":
-                canJump = !canJump;
+                canJump = true;
                 break;
 
             case "left":
-                canMoveLeft = !canMoveLeft; 
+                canMoveLeft = true; 
                 break;
 
             case "right":
-                canMoveRight = !canMoveRight;
+                canMoveRight = true;
+                break;
+        }
+    }
+
+    public void DisableMovement(string movement) 
+    {
+        switch (movement)
+        {
+            case "jump":
+                canJump = false;
+                break;
+
+            case "left":
+                canMoveLeft = false;
+                break;
+
+            case "right":
+                canMoveRight = false;
                 break;
         }
     }
