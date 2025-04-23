@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // movimentação
+    // movimentaï¿½ï¿½o
     public float speed = 10;
     public float jumpForce = 16;
 
-    // verificação se player está no chão
+    // animaÃ§Ã£o
+    public Animator anim;
+    
+    // verificaï¿½ï¿½o se player estï¿½ no chï¿½o
     public Transform groundCheck;
     public LayerMask groundLayer;
     private bool isGrounded;
 
-    // permissões de movimentação
+    // permissï¿½es de movimentaï¿½ï¿½o
     public bool canMoveLeft = true;
     public bool canMoveRight = true;
     public bool canJump = true;
@@ -31,24 +34,26 @@ public class PlayerController : MonoBehaviour
     {
         isGrounded = Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.8f, 0.3f), CapsuleDirection2D.Horizontal, 0, groundLayer);
 
-        if (isGrounded) 
+        // Pulo com espaï¿½o ou setinha pra cima ou W
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
-            Jump(canJump);
+            Jump();   
         }
     }
 
     void FixedUpdate()
     {
-        Walk(canMoveLeft, canMoveRight);
+        Walk();
+        anim.SetBool("isWalking", player.velocity.x != 0);
     }
 
-    void Walk(bool canMoveLeft, bool canMoveRight)
+    void Walk()
     {
         float inputX = Input.GetAxis("Horizontal");
 
         if (!canMoveLeft)
         {
-            // Verifica se o input no eixo X é menor que zero (se anda pra esquerda)
+            // Verifica se o input no eixo X ï¿½ menor que zero (se anda pra esquerda)
             if (inputX < 0) 
             {
                 inputX = 0;
@@ -57,7 +62,7 @@ public class PlayerController : MonoBehaviour
 
         if (!canMoveRight)
         {
-            // Verifica se o input no eixo X é maior que zero (se anda pra direita)
+            // Verifica se o input no eixo X ï¿½ maior que zero (se anda pra direita)
             if (inputX > 0)
             {
                 inputX = 0;
@@ -67,15 +72,31 @@ public class PlayerController : MonoBehaviour
         player.velocity = new Vector2(speed * inputX, player.velocity.y);
     }
 
-    void Jump(bool canJump)
+    public void MoveLeft()
     {
-        if (canJump)
+        if (canMoveLeft)
         {
-            // Pulo com espaço ou setinha pra cima
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                player.velocity = new Vector2(player.velocity.x, jumpForce);
-            }
+            Vector3 xPos = Vector3.left;
+            transform.position += xPos * speed * Time.deltaTime;
+            anim.SetBool("isWalking", true);
+        }
+    }
+
+    public void MoveRight()
+    {
+        if (canMoveRight)
+        {
+            Vector3 xPos = Vector3.right;
+            transform.position += xPos * speed * Time.deltaTime;
+            anim.SetBool("isWalking", true);
+        }
+    }
+
+    public void Jump()
+    {
+        if (canJump && isGrounded)
+        {
+            player.velocity = new Vector2(player.velocity.x, jumpForce);
         }
     }
 
