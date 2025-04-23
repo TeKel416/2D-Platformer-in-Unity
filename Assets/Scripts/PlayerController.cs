@@ -114,4 +114,9 @@ public class PlayerController : MonoBehaviour
                 break;
         }
     }
+
+    public void RestoreAllMovement()
+    {
+        canJump = canMoveLeft = canMoveRight = true;
+    }
 }
