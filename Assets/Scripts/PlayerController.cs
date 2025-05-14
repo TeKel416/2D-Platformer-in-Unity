@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D player;
 
+    private bool locked = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,8 +45,24 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Walk();
-        anim.SetBool("isWalking", player.velocity.x != 0);
+        if(!locked)
+        {
+            Walk();
+            anim.SetBool("isWalking", player.velocity.x != 0);
+        }
+    }
+
+    public void Push(Vector2 direction, float bounceDuration)
+    {
+        locked = true;
+        player.AddForce(direction, ForceMode2D.Impulse);
+        CancelInvoke("Unlock");
+        Invoke("Unlock", bounceDuration);
+    }
+
+    private void Unlock()
+    {
+        locked = false;
     }
 
     void Walk()
