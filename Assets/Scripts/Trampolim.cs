@@ -12,7 +12,6 @@ public class Trampolim : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<PlayerController>().Push(transform.up * bounce, bounceDuration);
-            //collision.gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * bounce, ForceMode2D.Impulse);
         }
     }
 }

@@ -9,26 +9,23 @@ public class Portal : MonoBehaviour
 
 	[SerializeField] private Transform destination;
 
-	private void OnTriggerEnter2D(Collider2D collision)
-	{
-		//previne que o objeto entre infinitamente nos portais
-		if (!collision.CompareTag("Player"))
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (portalObjects.Contains (collision.gameObject))
 		{
 			return;
 		}
+
 		if (destination.TryGetComponent(out Portal destinationPortal))
 		{
 			destinationPortal.portalObjects.Add(collision.gameObject);
 		}
-		collision.transform.position = destination.position;
-		}
 
-			private void OnTriggerExit2D(Collider2D collision)
-		{
-		if (!collision.CompareTag("Player"))
-		{
-			return;
-		}
-	portalObjects.Remove(collision.gameObject);
-	}
+		collision.transform.position = destination.position;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        portalObjects.Remove(collision.gameObject);
+    }
 }

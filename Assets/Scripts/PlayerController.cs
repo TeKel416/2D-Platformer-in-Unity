@@ -20,24 +20,22 @@ public class PlayerController : MonoBehaviour
     public bool canMoveLeft = true;
     public bool canMoveRight = true;
     public bool canJump = true;
-
-    private Rigidbody2D player;
-
     private bool locked = false;
 
-    // Start is called before the first frame update
-    void Start()
+    private Rigidbody2D player;
+    private Vector2 startPosition;
+
+    void Awake()
     {
         player = GetComponent<Rigidbody2D>();
+        startPosition = transform.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
         isGrounded = Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.8f, 0.3f), CapsuleDirection2D.Horizontal, 0, groundLayer);
 
-        // Pulo com espa�o ou setinha pra cima ou W
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
             Jump();   
         }
@@ -52,6 +50,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // Função para travar o player quando ele encostar no trampolim
     public void Push(Vector2 direction, float bounceDuration)
     {
         locked = true;
@@ -65,6 +64,7 @@ public class PlayerController : MonoBehaviour
         locked = false;
     }
 
+    // Movimentação PC
     void Walk()
     {
         float inputX = Input.GetAxis("Horizontal");
@@ -89,7 +89,15 @@ public class PlayerController : MonoBehaviour
 
         player.velocity = new Vector2(speed * inputX, player.velocity.y);
     }
+    public void Jump()
+    {
+        if (canJump && isGrounded)
+        {
+            player.velocity = new Vector2(player.velocity.x, jumpForce);
+        }
+    }
 
+    // Movimentação Mobile
     public void MoveLeft()
     {
         if (canMoveLeft)
@@ -110,14 +118,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void Jump()
-    {
-        if (canJump && isGrounded)
-        {
-            player.velocity = new Vector2(player.velocity.x, jumpForce);
-        }
-    }
-
+    // Restrições de movimento
     public void EnableMovement(string movement)
     {
         switch (movement) 
@@ -157,5 +158,11 @@ public class PlayerController : MonoBehaviour
     public void RestoreAllMovement()
     {
         canJump = canMoveLeft = canMoveRight = true;
+    }
+
+    // Morte
+    public void Die()
+    {
+        transform.position = startPosition;
     }
 }
