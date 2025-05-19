@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Windows;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PlayerController : MonoBehaviour
 {
@@ -23,19 +25,17 @@ public class PlayerController : MonoBehaviour
     private bool locked = false;
 
     private Rigidbody2D player;
-    private Vector2 startPosition;
 
     void Awake()
     {
         player = GetComponent<Rigidbody2D>();
-        startPosition = transform.position;
     }
 
     void Update()
     {
         isGrounded = Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.8f, 0.3f), CapsuleDirection2D.Horizontal, 0, groundLayer);
 
-        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+        if (UnityEngine.Input.GetKeyDown(KeyCode.UpArrow) || UnityEngine.Input.GetKeyDown(KeyCode.W))
         {
             Jump();   
         }
@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
     // Movimentação PC
     void Walk()
     {
-        float inputX = Input.GetAxis("Horizontal");
+        float inputX = UnityEngine.Input.GetAxis("Horizontal");
 
         if (!canMoveLeft)
         {
@@ -98,6 +98,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // Movimentação Mobile
+    // TODO: andar aplicando força no rigidbody do player
     public void MoveLeft()
     {
         if (canMoveLeft)
@@ -163,6 +164,24 @@ public class PlayerController : MonoBehaviour
     // Morte
     public void Die()
     {
-        transform.position = startPosition;
+        
+    }
+
+    // Susto
+    public void Scare(string movement)
+    {
+        DisableMovement(movement);
+        // trava o player no ar
+        player.velocity = new Vector2(0, player.velocity.y);
+        player.Sleep();
+        locked = true;
+        anim.SetTrigger("scare");
+        Invoke("Unlock", anim.GetCurrentAnimatorStateInfo(0).length);
+        Invoke("WakeUp", anim.GetCurrentAnimatorStateInfo(0).length + 0.2f);
+    }
+
+    private void WakeUp()
+    {
+        player.WakeUp();
     }
 }

@@ -52,4 +52,9 @@ public class SceneLoader : MonoBehaviour
             Time.timeScale = 1;
         }
     }
+
+    public void RestartLevel()
+    {
+        LoadScene(SceneManager.GetActiveScene().name);
+    }
 }
