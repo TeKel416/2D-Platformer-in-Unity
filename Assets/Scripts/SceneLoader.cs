@@ -53,8 +53,24 @@ public class SceneLoader : MonoBehaviour
         }
     }
 
+    // reinicia o level
     public void RestartLevel()
     {
         LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    // passa pro próximo level
+    public void NextLevel()
+    {
+        int totalLevels = SceneManager.sceneCountInBuildSettings;
+        int nextLevelIndex = (SceneManager.GetActiveScene().buildIndex) + 1;
+        
+        if (nextLevelIndex < totalLevels)
+        {
+            SceneManager.LoadScene(nextLevelIndex);
+        } else
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 }

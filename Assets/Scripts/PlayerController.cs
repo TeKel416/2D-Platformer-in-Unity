@@ -138,7 +138,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void DisableMovement(string movement) 
+    private void DisableMovement(string movement) 
     {
         switch (movement)
         {
