@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Windows;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 16;
 
     // animação
-    public Animator anim;
+    private Animator anim;
     
     // verifica��o se player est� no ch�o
     public Transform groundCheck;
@@ -26,9 +24,10 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D player;
 
-    void Awake()
+    void Start()
     {
         player = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -176,6 +175,7 @@ public class PlayerController : MonoBehaviour
         player.Sleep();
         locked = true;
         anim.SetTrigger("scare");
+        // destrava o player
         Invoke("Unlock", anim.GetCurrentAnimatorStateInfo(0).length);
         Invoke("WakeUp", anim.GetCurrentAnimatorStateInfo(0).length + 0.2f);
     }
