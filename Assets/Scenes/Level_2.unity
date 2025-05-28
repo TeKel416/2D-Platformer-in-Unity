@@ -799,6 +799,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5084968590660644957, guid: 6d0e6c8efdcf5ff4eae75ab21d35a62c, type: 3}
+      propertyPath: onTriggerEnter2D.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1442230423}
+    - target: {fileID: 5084968590660644957, guid: 6d0e6c8efdcf5ff4eae75ab21d35a62c, type: 3}
+      propertyPath: onTriggerEnter2D.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Scare
+      objectReference: {fileID: 0}
     - target: {fileID: 7286177650557433488, guid: 6d0e6c8efdcf5ff4eae75ab21d35a62c, type: 3}
       propertyPath: m_Size.y
       value: 4.79

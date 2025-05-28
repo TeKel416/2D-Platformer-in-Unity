@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     // movimenta��o
     public float speed = 10;
-    public float jumpForce = 16;
+    public float jumpForce = 19;
 
     // animação
     private Animator anim;
@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
     {
         isGrounded = Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.8f, 0.3f), CapsuleDirection2D.Horizontal, 0, groundLayer);
 
-        if (UnityEngine.Input.GetKeyDown(KeyCode.UpArrow) || UnityEngine.Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
             Jump();   
         }
@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
     // Movimentação PC
     void Walk()
     {
-        float inputX = UnityEngine.Input.GetAxis("Horizontal");
+        float inputX = Input.GetAxis("Horizontal");
 
         if (!canMoveLeft)
         {
@@ -137,7 +137,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void DisableMovement(string movement) 
+    public void DisableMovement(string movement) 
     {
         switch (movement)
         {
@@ -163,7 +163,7 @@ public class PlayerController : MonoBehaviour
     // Morte
     public void Die()
     {
-        
+        //colocar animação de morte e talvez o restartLevel() do sceneLoader
     }
 
     // Susto

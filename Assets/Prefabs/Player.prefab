@@ -170,8 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  jumpForce: 15
-  anim: {fileID: 2607010438300432871}
+  jumpForce: 19
   groundCheck: {fileID: 2607010438161179357}
   groundLayer:
     serializedVersion: 2

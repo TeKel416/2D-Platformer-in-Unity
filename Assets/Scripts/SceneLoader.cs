@@ -23,6 +23,11 @@ public class SceneLoader : MonoBehaviour
                 FreezeTime(true);
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            RestartLevel();
+        }
     }
 
     // carrega uma Scene
@@ -70,7 +75,7 @@ public class SceneLoader : MonoBehaviour
             SceneManager.LoadScene(nextLevelIndex);
         } else
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(0); //pode trocar pra uma tela de "Obrigado por jogar"
         }
     }
 }
