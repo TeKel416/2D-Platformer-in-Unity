@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Windows;
 
 public class PlayerController : MonoBehaviour
 {
@@ -28,15 +29,17 @@ public class PlayerController : MonoBehaviour
     {
         player = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        anim.SetBool("isDead", false);
+        WakeUp();
     }
 
     void Update()
     {
-        isGrounded = Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.8f, 0.3f), CapsuleDirection2D.Horizontal, 0, groundLayer);
+        isGrounded = Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.8f, 0.4f), CapsuleDirection2D.Horizontal, 0, groundLayer);
 
-        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+        if (!locked && (UnityEngine.Input.GetKeyDown(KeyCode.UpArrow) || UnityEngine.Input.GetKeyDown(KeyCode.W) || UnityEngine.Input.GetKeyDown(KeyCode.Space)))
         {
-            Jump();   
+            Jump();
         }
     }
 
@@ -66,7 +69,7 @@ public class PlayerController : MonoBehaviour
     // Movimentação PC
     void Walk()
     {
-        float inputX = Input.GetAxis("Horizontal");
+        float inputX = UnityEngine.Input.GetAxis("Horizontal");
 
         if (!canMoveLeft)
         {
@@ -163,7 +166,9 @@ public class PlayerController : MonoBehaviour
     // Morte
     public void Die()
     {
-        //colocar animação de morte e talvez o restartLevel() do sceneLoader
+        anim.SetBool("isDead", true);
+        player.Sleep();
+        locked = true;
     }
 
     // Susto
