@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        isGrounded = Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.8f, 0.4f), CapsuleDirection2D.Horizontal, 0, groundLayer);
+        isGrounded = Physics2D.OverlapCapsule(groundCheck.position, new Vector2(1f, 1.3f), CapsuleDirection2D.Horizontal, 0, groundLayer);
 
         if (!locked && (UnityEngine.Input.GetKeyDown(KeyCode.UpArrow) || UnityEngine.Input.GetKeyDown(KeyCode.W) || UnityEngine.Input.GetKeyDown(KeyCode.Space)))
         {
@@ -167,6 +167,7 @@ public class PlayerController : MonoBehaviour
     public void Die()
     {
         anim.SetBool("isDead", true);
+        Debug.Log(anim.GetBool("isDead"));
         player.Sleep();
         locked = true;
     }
