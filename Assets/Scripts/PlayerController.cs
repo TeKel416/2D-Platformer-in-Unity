@@ -1,23 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Windows;
 
 public class PlayerController : MonoBehaviour
 {
-    // movimenta��o
+    // movimentacao
     public float speed = 10;
     public float jumpForce = 19;
 
     // animação
     private Animator anim;
+    private bool isFacingRight = true;
     
-    // verifica��o se player est� no ch�o
+    // verificacao se player esta no chao
     public Transform groundCheck;
     public LayerMask groundLayer;
     private bool isGrounded;
 
-    // permiss�es de movimenta��o
+    // permissoes de movimentacao
     public bool canMoveLeft = true;
     public bool canMoveRight = true;
     public bool canJump = true;
@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     {
         player = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        // Reiniciar estado do player
         anim.SetBool("isDead", false);
         WakeUp();
     }
@@ -37,9 +38,18 @@ public class PlayerController : MonoBehaviour
     {
         isGrounded = Physics2D.OverlapCapsule(groundCheck.position, new Vector2(1f, 1.3f), CapsuleDirection2D.Horizontal, 0, groundLayer);
 
-        if (!locked && (UnityEngine.Input.GetKeyDown(KeyCode.UpArrow) || UnityEngine.Input.GetKeyDown(KeyCode.W) || UnityEngine.Input.GetKeyDown(KeyCode.Space)))
+        if (!locked && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)))
         {
             Jump();
+        }
+
+        if (!isGrounded)
+        {
+            anim.SetBool("isJumping", true);
+        }
+        else 
+        {
+            anim.SetBool("isJumping", false);
         }
     }
 
@@ -69,11 +79,11 @@ public class PlayerController : MonoBehaviour
     // Movimentação PC
     void Walk()
     {
-        float inputX = UnityEngine.Input.GetAxis("Horizontal");
+        float inputX = Input.GetAxis("Horizontal");
 
         if (!canMoveLeft)
         {
-            // Verifica se o input no eixo X � menor que zero (se anda pra esquerda)
+            // Verifica se o input no eixo X eh menor que zero (se anda pra esquerda)
             if (inputX < 0) 
             {
                 inputX = 0;
@@ -82,7 +92,7 @@ public class PlayerController : MonoBehaviour
 
         if (!canMoveRight)
         {
-            // Verifica se o input no eixo X � maior que zero (se anda pra direita)
+            // Verifica se o input no eixo X eh maior que zero (se anda pra direita)
             if (inputX > 0)
             {
                 inputX = 0;
@@ -121,7 +131,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // Restrições de movimento
+    // Restricoes de movimento
     public void EnableMovement(string movement)
     {
         switch (movement) 
@@ -167,7 +177,6 @@ public class PlayerController : MonoBehaviour
     public void Die()
     {
         anim.SetBool("isDead", true);
-        Debug.Log(anim.GetBool("isDead"));
         player.Sleep();
         locked = true;
     }

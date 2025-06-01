@@ -760,7 +760,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1794233118856677510, guid: f6b6790617ac4c14d833b5b7cb5bac65, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.5179424
+      value: -6.7679424
       objectReference: {fileID: 0}
     - target: {fileID: 1794233118856677510, guid: f6b6790617ac4c14d833b5b7cb5bac65, type: 3}
       propertyPath: m_LocalPosition.z
@@ -929,7 +929,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7286177651076222317, guid: 6d0e6c8efdcf5ff4eae75ab21d35a62c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: -1.25
       objectReference: {fileID: 0}
     - target: {fileID: 7286177651076222317, guid: 6d0e6c8efdcf5ff4eae75ab21d35a62c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1048,6 +1048,10 @@ PrefabInstance:
     - target: {fileID: 6696216108649965401, guid: 5a21cb113b8c63d4b8f5d19d4f22cc9c, type: 3}
       propertyPath: m_Name
       value: Trampolim
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696216108649965401, guid: 5a21cb113b8c63d4b8f5d19d4f22cc9c, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6696216108649965405, guid: 5a21cb113b8c63d4b8f5d19d4f22cc9c, type: 3}
       propertyPath: m_RootOrder
@@ -1437,6 +1441,10 @@ PrefabInstance:
     - target: {fileID: 2607010438300432872, guid: 5c5cedc2b9910134b8869dec27d75ef1, type: 3}
       propertyPath: canJump
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2607010438300432872, guid: 5c5cedc2b9910134b8869dec27d75ef1, type: 3}
+      propertyPath: trampolineLayer.m_Bits
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 2607010438300432873, guid: 5c5cedc2b9910134b8869dec27d75ef1, type: 3}
       propertyPath: m_RootOrder
