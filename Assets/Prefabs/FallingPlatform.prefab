@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7477842183752162674}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: FallingPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,7 +196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7477842184644316063}
   - component: {fileID: 7477842184644316062}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: PosA
   m_TagString: Untagged
   m_Icon: {fileID: 0}

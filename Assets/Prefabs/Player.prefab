@@ -175,6 +175,9 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  trampolineLayer:
+    serializedVersion: 2
+    m_Bits: 128
   canMoveLeft: 1
   canMoveRight: 1
   canJump: 1

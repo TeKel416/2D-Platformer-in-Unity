@@ -7,15 +7,18 @@ public class PlayerController : MonoBehaviour
     // movimentacao
     public float speed = 10;
     public float jumpForce = 19;
+    private float Move;
 
     // animação
     private Animator anim;
-    private bool isFacingRight = true;
-    
+    private bool isFacingRight;
+
     // verificacao se player esta no chao
     public Transform groundCheck;
-    public LayerMask groundLayer;
-    private bool isGrounded;
+    public LayerMask groundLayer; 
+    public LayerMask trampolineLayer;
+    private bool isGrounded; 
+    private bool inTrampoline;
 
     // permissoes de movimentacao
     public bool canMoveLeft = true;
@@ -29,21 +32,24 @@ public class PlayerController : MonoBehaviour
     {
         player = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+
         // Reiniciar estado do player
+        isFacingRight = true;
         anim.SetBool("isDead", false);
         WakeUp();
     }
 
     void Update()
     {
-        isGrounded = Physics2D.OverlapCapsule(groundCheck.position, new Vector2(1f, 1.3f), CapsuleDirection2D.Horizontal, 0, groundLayer);
+        isGrounded = Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.9f, 1.3f), CapsuleDirection2D.Horizontal, 0, groundLayer);
+        inTrampoline = Physics2D.OverlapCapsule(groundCheck.position, new Vector2(1f, 1.3f), CapsuleDirection2D.Horizontal, 0, trampolineLayer);
 
         if (!locked && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)))
         {
             Jump();
         }
 
-        if (!isGrounded)
+        if (!isGrounded && !inTrampoline)
         {
             anim.SetBool("isJumping", true);
         }
@@ -57,9 +63,27 @@ public class PlayerController : MonoBehaviour
     {
         if(!locked)
         {
+            Move = Input.GetAxisRaw("Horizontal");
             Walk();
             anim.SetBool("isWalking", player.velocity.x != 0);
+
+            if (!isFacingRight && Move > 0)
+            {
+                FlipSprite();
+            }
+            else if (isFacingRight && Move < 0)
+            {
+                FlipSprite();
+            }
         }
+    }
+
+    public void FlipSprite()
+    {
+        isFacingRight = !isFacingRight;
+        Vector3 localScale = transform.localScale;
+        localScale.x *= -1f;
+        transform.localScale = localScale;
     }
 
     // Função para travar o player quando ele encostar no trampolim
@@ -132,24 +156,6 @@ public class PlayerController : MonoBehaviour
     }
 
     // Restricoes de movimento
-    public void EnableMovement(string movement)
-    {
-        switch (movement) 
-        {
-            case "jump":
-                canJump = true;
-                break;
-
-            case "left":
-                canMoveLeft = true; 
-                break;
-
-            case "right":
-                canMoveRight = true;
-                break;
-        }
-    }
-
     public void DisableMovement(string movement) 
     {
         switch (movement)
