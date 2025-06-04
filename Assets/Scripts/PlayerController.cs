@@ -41,8 +41,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        isGrounded = Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.9f, 1.3f), CapsuleDirection2D.Horizontal, 0, groundLayer);
-        inTrampoline = Physics2D.OverlapCapsule(groundCheck.position, new Vector2(1f, 1.3f), CapsuleDirection2D.Horizontal, 0, trampolineLayer);
+        isGrounded = Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.9f, 1.1f), CapsuleDirection2D.Horizontal, 0, groundLayer);
+        inTrampoline = Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.9f, 1.1f), CapsuleDirection2D.Horizontal, 0, trampolineLayer);
 
         if (!locked && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)))
         {

@@ -31,7 +31,7 @@ public class FallingPlatform : MonoBehaviour
             collision.transform.parent = this.transform;
         }
 
-        fall = true;
+        Invoke("Fall", 0.1f);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -40,5 +40,10 @@ public class FallingPlatform : MonoBehaviour
         {
             collision.transform.parent = null;
         }
+    }
+
+    private void Fall()
+    {
+        fall = true;
     }
 }

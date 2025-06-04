@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6581582706902355448}
   m_Layer: 6
   m_Name: Caixa
-  m_TagString: Untagged
+  m_TagString: Caixa
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

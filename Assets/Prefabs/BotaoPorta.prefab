@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7122317146952290126}
   - component: {fileID: 7122317146952290124}
   - component: {fileID: 7122317146952290125}
-  - component: {fileID: 8516915414155754572}
   - component: {fileID: 583641622595023474}
+  - component: {fileID: 8159217146188040756}
   m_Layer: 0
   m_Name: Botao
   m_TagString: Untagged
@@ -111,77 +111,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.5, y: 1.3}
+  m_Size: {x: 2.5, y: 1.5}
   m_EdgeRadius: 0
---- !u!114 &8516915414155754572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7122317146952290127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4a857e6b49299e4fb11dcce3722915b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tagFilter: 
-  onTriggerEnter2D:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7122317147855650905}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 7122317146952290124}
-        m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
-        m_MethodName: set_sprite
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: -88237022, guid: b9991e80700b21a478d082fa4aa6e9ac, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onTriggerExit2D:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7122317147855650905}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 7122317146952290124}
-        m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
-        m_MethodName: set_sprite
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: -1453306188, guid: b9991e80700b21a478d082fa4aa6e9ac, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  destroyOnTriggerEnter2D: 0
-  destroyOnTriggerExit2D: 0
 --- !u!114 &583641622595023474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,6 +126,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   portaAnimator: {fileID: 461570926434790337}
+  portaCollider: {fileID: 7122317147855650905}
+--- !u!95 &8159217146188040756
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7122317146952290127}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 909e6fb4817e47d4f89e66cda078a9c8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7122317147635060190
 GameObject:
   m_ObjectHideFlags: 0
