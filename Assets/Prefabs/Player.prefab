@@ -171,6 +171,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   jumpForce: 19
+  anim: {fileID: 2607010438300432871}
+  animNormal: {fileID: 9100000, guid: 7e7c691c06a229d4e9721f6145d093cb, type: 2}
+  animNoRight: {fileID: 9100000, guid: 899c4f0a1e3ed714b88927f18ae1e062, type: 2}
+  animNoLeft: {fileID: 9100000, guid: c74aed96b719c0b4286a30adddf61728, type: 2}
+  animNoJump: {fileID: 9100000, guid: d823e08cbe63df24d8b6759076be7cb8, type: 2}
   groundCheck: {fileID: 2607010438161179357}
   groundLayer:
     serializedVersion: 2

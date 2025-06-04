@@ -10,7 +10,11 @@ public class PlayerController : MonoBehaviour
     private float Move;
 
     // animação
-    private Animator anim;
+    public Animator anim;
+    public RuntimeAnimatorController animNormal;
+    public RuntimeAnimatorController animNoRight;
+    public RuntimeAnimatorController animNoLeft;
+    public RuntimeAnimatorController animNoJump;
     private bool isFacingRight;
 
     // verificacao se player esta no chao
@@ -27,16 +31,18 @@ public class PlayerController : MonoBehaviour
     private bool locked = false;
 
     private Rigidbody2D player;
+    public bool hasWon;
 
     void Start()
     {
         player = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
 
         // Reiniciar estado do player
+        anim.runtimeAnimatorController = animNormal;
         isFacingRight = true;
         anim.SetBool("isDead", false);
         WakeUp();
+        hasWon = false;
     }
 
     void Update()
@@ -69,11 +75,15 @@ public class PlayerController : MonoBehaviour
 
             if (!isFacingRight && Move > 0)
             {
-                FlipSprite();
+                if (canMoveRight){
+                    FlipSprite();
+                }
             }
             else if (isFacingRight && Move < 0)
             {
-                FlipSprite();
+                if (canMoveLeft){
+                    FlipSprite();
+                }
             }
         }
     }
@@ -93,11 +103,6 @@ public class PlayerController : MonoBehaviour
         player.AddForce(direction, ForceMode2D.Impulse);
         CancelInvoke("Unlock");
         Invoke("Unlock", bounceDuration);
-    }
-
-    private void Unlock()
-    {
-        locked = false;
     }
 
     // Movimentação PC
@@ -125,6 +130,7 @@ public class PlayerController : MonoBehaviour
 
         player.velocity = new Vector2(speed * inputX, player.velocity.y);
     }
+
     public void Jump()
     {
         if (canJump && isGrounded)
@@ -162,14 +168,32 @@ public class PlayerController : MonoBehaviour
         {
             case "jump":
                 canJump = false;
+                Invoke("SetNoJumpAnimator", anim.GetCurrentAnimatorStateInfo(0).length);
                 break;
 
             case "left":
                 canMoveLeft = false;
+                if (isFacingRight)
+                {
+                    Invoke("SetNoLeftAnimator", anim.GetCurrentAnimatorStateInfo(0).length);
+                }
+                else
+                {
+                    
+                    Invoke("SetNoRightAnimator", anim.GetCurrentAnimatorStateInfo(0).length);
+                }
                 break;
 
             case "right":
                 canMoveRight = false;
+                if (isFacingRight)
+                {
+                    Invoke("SetNoRightAnimator", anim.GetCurrentAnimatorStateInfo(0).length);
+                } 
+                else
+                {
+                    Invoke("SetNoLeftAnimator", anim.GetCurrentAnimatorStateInfo(0).length);
+                }
                 break;
         }
     }
@@ -177,6 +201,7 @@ public class PlayerController : MonoBehaviour
     public void RestoreAllMovement()
     {
         canJump = canMoveLeft = canMoveRight = true;
+        anim.runtimeAnimatorController = animNormal;
     }
 
     // Morte
@@ -187,10 +212,18 @@ public class PlayerController : MonoBehaviour
         locked = true;
     }
 
+    // Vencer
+    public void Win()
+    {
+        hasWon = true;
+        anim.SetTrigger("win");
+        player.Sleep();
+        locked = true;
+    }
+
     // Susto
     public void Scare(string movement)
     {
-        DisableMovement(movement);
         // trava o player no ar
         player.velocity = new Vector2(0, player.velocity.y);
         player.Sleep();
@@ -199,10 +232,33 @@ public class PlayerController : MonoBehaviour
         // destrava o player
         Invoke("Unlock", anim.GetCurrentAnimatorStateInfo(0).length);
         Invoke("WakeUp", anim.GetCurrentAnimatorStateInfo(0).length + 0.2f);
+
+        // troca o animator do player e desativa seu movimento
+        DisableMovement(movement);
+    }
+
+    private void SetNoLeftAnimator()
+    {
+        anim.runtimeAnimatorController = animNoLeft;
+    }
+
+    private void SetNoRightAnimator()
+    {
+        anim.runtimeAnimatorController = animNoRight;
+    }
+
+    private void SetNoJumpAnimator()
+    {
+        anim.runtimeAnimatorController = animNoJump;
     }
 
     private void WakeUp()
     {
         player.WakeUp();
+    }
+
+    private void Unlock()
+    {
+        locked = false;
     }
 }

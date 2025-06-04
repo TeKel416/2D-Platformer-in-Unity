@@ -5,11 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
+    public bool gameplayScene = true;
     public GameObject pauseMenu;
     private bool isPaused;
 
     void Update()
     {
+        if (!gameplayScene) return;
+
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
         {
             if (isPaused)
@@ -28,7 +31,17 @@ public class SceneLoader : MonoBehaviour
         {
             RestartLevel();
         }
+
+        if (GetPlayer().hasWon)
+        {
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                NextLevel();
+            }
+        }
     }
+
+    public PlayerController GetPlayer() => GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
 
     // carrega uma Scene
     public void LoadScene(string sceneName)

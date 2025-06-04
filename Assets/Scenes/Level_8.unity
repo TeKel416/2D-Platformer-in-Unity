@@ -1037,6 +1037,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -5.416342
       objectReference: {fileID: 0}
+    - target: {fileID: 7122317146952290126, guid: e26b9e257be67f64e8d127b237142dfe, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7122317147635060189, guid: e26b9e257be67f64e8d127b237142dfe, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1468,7 +1472,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6581582706902355399, guid: 62b59522f91ee4042bacab1accf5824e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 6581582706902355399, guid: 62b59522f91ee4042bacab1accf5824e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1833,6 +1837,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1911057883767291714, guid: 83172fe963f8cc4489e4669581482e68, type: 3}
+      propertyPath: onTriggerEnter2D.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1603947024}
+    - target: {fileID: 1911057883767291714, guid: 83172fe963f8cc4489e4669581482e68, type: 3}
+      propertyPath: onTriggerEnter2D.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Win
+      objectReference: {fileID: 0}
     - target: {fileID: 1911057883767291715, guid: 83172fe963f8cc4489e4669581482e68, type: 3}
       propertyPath: m_Name
       value: Objetivo

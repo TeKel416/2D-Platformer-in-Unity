@@ -1005,6 +1005,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1911057883767291714, guid: 83172fe963f8cc4489e4669581482e68, type: 3}
+      propertyPath: onTriggerEnter2D.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1104753308}
+    - target: {fileID: 1911057883767291714, guid: 83172fe963f8cc4489e4669581482e68, type: 3}
+      propertyPath: onTriggerEnter2D.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Win
+      objectReference: {fileID: 0}
     - target: {fileID: 1911057883767291715, guid: 83172fe963f8cc4489e4669581482e68, type: 3}
       propertyPath: m_Name
       value: Objetivo

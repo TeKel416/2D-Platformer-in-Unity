@@ -103,9 +103,9 @@ MonoBehaviour:
   onTriggerEnter2D:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 469055986105320040, guid: dcc92aa7699e1484599fc9979dcb71f7, type: 3}
-        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: NextLevel
+      - m_Target: {fileID: 2607010438300432872, guid: 5c5cedc2b9910134b8869dec27d75ef1, type: 3}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Win
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
