@@ -186,6 +186,8 @@ MonoBehaviour:
   canMoveLeft: 1
   canMoveRight: 1
   canJump: 1
+  hasWon: 0
+  continueText: {fileID: 0}
 --- !u!95 &2607010438300432871
 Animator:
   serializedVersion: 5

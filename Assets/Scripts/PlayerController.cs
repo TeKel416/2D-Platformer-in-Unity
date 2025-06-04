@@ -30,8 +30,10 @@ public class PlayerController : MonoBehaviour
     public bool canJump = true;
     private bool locked = false;
 
-    private Rigidbody2D player;
     public bool hasWon;
+    public GameObject continueText;
+
+    private Rigidbody2D player;
 
     void Start()
     {
@@ -43,6 +45,7 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("isDead", false);
         WakeUp();
         hasWon = false;
+        continueText.SetActive(false);
     }
 
     void Update()
@@ -219,6 +222,13 @@ public class PlayerController : MonoBehaviour
         anim.SetTrigger("win");
         player.Sleep();
         locked = true;
+
+        Invoke("ShowContinueText", 2.5f);
+    }
+
+    private void ShowContinueText()
+    {
+        continueText.SetActive(true);
     }
 
     // Susto

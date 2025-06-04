@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -34,7 +35,7 @@ public class SceneLoader : MonoBehaviour
 
         if (GetPlayer().hasWon)
         {
-            if (Input.GetKeyDown(KeyCode.Return))
+            if (Input.GetMouseButtonDown(0))
             {
                 NextLevel();
             }
