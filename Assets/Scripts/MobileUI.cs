@@ -5,11 +5,22 @@ using UnityEngine;
 public class MobileUI : MonoBehaviour
 {
     public GameObject mobileUI;
+    public GameObject webUI;
 
-#if !UNITY_ANDROID
     void Awake()
     {
-        mobileUI.SetActive(false);
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            mobileUI.SetActive(true);
+
+            if (webUI != null)
+            {
+                webUI.SetActive(false);
+            }
+        }
+        else
+        {
+            mobileUI.SetActive(false);
+        }
     }
-#endif
 }
