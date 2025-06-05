@@ -35,6 +35,10 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D player;
 
+    //Botões Mobile
+    public Mybutton botao1;
+    public Mybutton botao2;
+
     void Start()
     {
         player = GetComponent<Rigidbody2D>();
@@ -49,6 +53,16 @@ public class PlayerController : MonoBehaviour
     }
 
     void Update()
+
+    void CheckInput()
+    {
+        if(botao1.isPressed)
+        {
+            botaoInput += botao1.dampenPress;
+        }
+        if (botao2.isPressed)
+        {
+            botaoInput -= botao2.dampenPress;
     {
         isGrounded = Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.9f, 1.1f), CapsuleDirection2D.Horizontal, 0, groundLayer);
         inTrampoline = Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.9f, 1.1f), CapsuleDirection2D.Horizontal, 0, trampolineLayer);
