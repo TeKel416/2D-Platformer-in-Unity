@@ -138,7 +138,7 @@ public class PlayerController : MonoBehaviour
 
     public void Jump()
     {
-        if (canJump && isGrounded)
+        if (canJump && isGrounded && !locked)
         {
             player.velocity = new Vector2(player.velocity.x, jumpForce);
         }
@@ -193,6 +193,7 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("isDead", true);
         player.Sleep();
         locked = true;
+        player.velocity = new Vector2(0f, 0f);
     }
 
     // Vencer

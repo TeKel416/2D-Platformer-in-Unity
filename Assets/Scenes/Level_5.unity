@@ -2891,6 +2891,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 5293992379296295879, guid: dcc92aa7699e1484599fc9979dcb71f7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1377595759}
+    - target: {fileID: 5293992379296295879, guid: dcc92aa7699e1484599fc9979dcb71f7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Jump
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcc92aa7699e1484599fc9979dcb71f7, type: 3}
 --- !u!1 &1556213289 stripped
@@ -2898,6 +2906,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2421667025392717126, guid: dcc92aa7699e1484599fc9979dcb71f7, type: 3}
   m_PrefabInstance: {fileID: 1556213288}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1556213290 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9269369431828198, guid: dcc92aa7699e1484599fc9979dcb71f7, type: 3}
+  m_PrefabInstance: {fileID: 1556213288}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a47f546fc70ec8428172694e78e4288, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1565858611 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2478586822929879035, guid: 5e8620ebff124d54bb89bceeb070c7ac, type: 3}
@@ -2976,6 +2995,10 @@ PrefabInstance:
       propertyPath: canJump
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2607010438300432872, guid: 5c5cedc2b9910134b8869dec27d75ef1, type: 3}
+      propertyPath: joystick
+      value: 
+      objectReference: {fileID: 1556213290}
     - target: {fileID: 2607010438300432872, guid: 5c5cedc2b9910134b8869dec27d75ef1, type: 3}
       propertyPath: jumpForce
       value: 19

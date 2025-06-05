@@ -31,7 +31,11 @@ public class FallingPlatform : MonoBehaviour
             collision.transform.parent = this.transform;
         }
 
+#if !UNITY_ANDROID
         Invoke("Fall", 0.15f);
+#else
+        Invoke("Fall", 0.2f);
+#endif
     }
 
     private void OnTriggerExit2D(Collider2D collision)
