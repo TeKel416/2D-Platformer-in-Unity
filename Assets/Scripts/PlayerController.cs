@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 10;
     public float jumpForce = 19;
     private float Move;
+    public Joystick joystick;
 
     // animação
     public Animator anim;
@@ -35,10 +36,6 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D player;
 
-    //Botões Mobile
-    public Mybutton botao1;
-    public Mybutton botao2;
-
     void Start()
     {
         player = GetComponent<Rigidbody2D>();
@@ -52,18 +49,7 @@ public class PlayerController : MonoBehaviour
         continueText.SetActive(false);
     }
 
-    void Update()
-
-    void CheckInput()
-    {
-        if(botao1.isPressed)
-        {
-            botaoInput += botao1.dampenPress;
-        }
-        if (botao2.isPressed)
-        {
-            botaoInput -= botao2.dampenPress;
-    {
+    void Update() {
         isGrounded = Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.9f, 1.1f), CapsuleDirection2D.Horizontal, 0, groundLayer);
         inTrampoline = Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.9f, 1.1f), CapsuleDirection2D.Horizontal, 0, trampolineLayer);
 
@@ -76,7 +62,7 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetBool("isJumping", true);
         }
-        else 
+        else
         {
             anim.SetBool("isJumping", false);
         }
@@ -84,21 +70,23 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(!locked)
+        if (!locked)
         {
-            Move = Input.GetAxisRaw("Horizontal");
+            Move = Input.GetAxisRaw("Horizontal") + joystick.Horizontal;
             Walk();
             anim.SetBool("isWalking", player.velocity.x != 0);
 
             if (!isFacingRight && Move > 0)
             {
-                if (canMoveRight){
+                if (canMoveRight)
+                {
                     FlipSprite();
                 }
             }
             else if (isFacingRight && Move < 0)
             {
-                if (canMoveLeft){
+                if (canMoveLeft)
+                {
                     FlipSprite();
                 }
             }
@@ -125,7 +113,7 @@ public class PlayerController : MonoBehaviour
     // Movimentação PC
     void Walk()
     {
-        float inputX = Input.GetAxis("Horizontal");
+        float inputX = Input.GetAxis("Horizontal") + joystick.Horizontal;
 
         if (!canMoveLeft)
         {
@@ -153,28 +141,6 @@ public class PlayerController : MonoBehaviour
         if (canJump && isGrounded)
         {
             player.velocity = new Vector2(player.velocity.x, jumpForce);
-        }
-    }
-
-    // Movimentação Mobile
-    // TODO: andar aplicando força no rigidbody do player
-    public void MoveLeft()
-    {
-        if (canMoveLeft)
-        {
-            Vector3 xPos = Vector3.left;
-            transform.position += xPos * speed * Time.deltaTime;
-            anim.SetBool("isWalking", true);
-        }
-    }
-
-    public void MoveRight()
-    {
-        if (canMoveRight)
-        {
-            Vector3 xPos = Vector3.right;
-            transform.position += xPos * speed * Time.deltaTime;
-            anim.SetBool("isWalking", true);
         }
     }
 
