@@ -31,6 +31,12 @@ public class PlayerController : MonoBehaviour
     public bool canJump = true;
     private bool locked = false;
 
+    // SFX
+    public AudioClip winSFX;
+    public AudioClip dieSFX;
+    public AudioClip jumpSFX;
+    public AudioClip scareSFX;
+
     public bool hasWon;
     public GameObject continueText;
 
@@ -141,6 +147,8 @@ public class PlayerController : MonoBehaviour
         if (canJump && isGrounded && !locked)
         {
             player.velocity = new Vector2(player.velocity.x, jumpForce);
+            // play sfx
+            AudioManager.instance.PlayRandomPitchSFXClip(jumpSFX, transform);
         }
     }
 
@@ -194,6 +202,8 @@ public class PlayerController : MonoBehaviour
         player.Sleep();
         locked = true;
         player.velocity = new Vector2(0f, 0f);
+        // play sfx
+        AudioManager.instance.PlaySFXClip(dieSFX, transform);
     }
 
     // Vencer
@@ -203,6 +213,9 @@ public class PlayerController : MonoBehaviour
         anim.SetTrigger("win");
         player.Sleep();
         locked = true;
+
+        // play sfx
+        AudioManager.instance.PlaySFXClip(winSFX, transform);
 
         Invoke("ShowContinueText", 2.5f);
     }
@@ -215,11 +228,15 @@ public class PlayerController : MonoBehaviour
     // Susto
     public void Scare(string movement)
     {
+        // play sfx
+        AudioManager.instance.PlaySFXClip(scareSFX, transform);
+
         // trava o player no ar
         player.velocity = new Vector2(0, player.velocity.y);
         player.Sleep();
         locked = true;
         anim.SetTrigger("scare");
+
         // destrava o player
         Invoke("Unlock", anim.GetCurrentAnimatorStateInfo(0).length);
         Invoke("WakeUp", anim.GetCurrentAnimatorStateInfo(0).length + 0.2f);

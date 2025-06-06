@@ -5,6 +5,7 @@ using UnityEngine;
 public class Vent : MonoBehaviour
 {
     private Animator anim;
+
     private void Start()
     {
         anim = GetComponent<Animator>();

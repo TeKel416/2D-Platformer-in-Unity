@@ -171,6 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   jumpForce: 19
+  joystick: {fileID: 0}
   anim: {fileID: 2607010438300432871}
   animNormal: {fileID: 9100000, guid: 7e7c691c06a229d4e9721f6145d093cb, type: 2}
   animNoRight: {fileID: 9100000, guid: 899c4f0a1e3ed714b88927f18ae1e062, type: 2}
@@ -186,6 +187,10 @@ MonoBehaviour:
   canMoveLeft: 1
   canMoveRight: 1
   canJump: 1
+  winSFX: {fileID: 8300000, guid: a2bfdcd56505ee54da54fe7d4d9b1c90, type: 3}
+  dieSFX: {fileID: 8300000, guid: 4e057a34b089f6449bccc8c95d086582, type: 3}
+  jumpSFX: {fileID: 8300000, guid: 0aa4fb6240dfd204b81529f22993e31c, type: 3}
+  scareSFX: {fileID: 8300000, guid: 7f152bb37fe8ab04ab94bc93210c3eb9, type: 3}
   hasWon: 0
   continueText: {fileID: 0}
 --- !u!95 &2607010438300432871

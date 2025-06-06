@@ -9,55 +9,29 @@ public class SettingsMenu : MonoBehaviour
     public Slider masterVol, musicVol, sfxVol;
     public AudioMixer mainAudioMixer;
 
-    private void Start()
-    {
-        if (PlayerPrefs.HasKey("MasterVol"))
-        {
-            LoadMasterVolume();
-        }
-        if (PlayerPrefs.HasKey("MusicVol"))
-        {
-            LoadMusicVolume();
-        }
-        if (PlayerPrefs.HasKey("SFXVol"))
-        {
-            LoadSFXVolume();
-        }
-    }
+    // SFX
+    public AudioClip clickSFX;
 
-    public void ChangeMasterVolume()
+    public void SetMasterVolume()
     {
-        mainAudioMixer.SetFloat("MasterVol", masterVol.value);
+        mainAudioMixer.SetFloat("MasterVol", Mathf.Log10(masterVol.value) * 20f);
         PlayerPrefs.SetFloat("MasterVol", masterVol.value);
     }
 
-    public void ChangeMusicVolume()
+    public void SetMusicVolume()
     {
-        mainAudioMixer.SetFloat("MusicVol", musicVol.value);
+        mainAudioMixer.SetFloat("MusicVol", Mathf.Log10(musicVol.value) * 20f);
         PlayerPrefs.SetFloat("MusicVol", musicVol.value);
     }
 
-    public void ChangeSFXVolume()
+    public void SetSFXVolume()
     {
-        mainAudioMixer.SetFloat("SFXVol", sfxVol.value);
+        mainAudioMixer.SetFloat("SFXVol", Mathf.Log10(sfxVol.value) * 20f);
         PlayerPrefs.SetFloat("SFXVol", sfxVol.value);
     }
 
-    public void LoadMasterVolume()
+    public void PlayClickSFX()
     {
-        masterVol.value = PlayerPrefs.GetFloat("MasterVol");
-        ChangeMasterVolume();
-    }
-
-    public void LoadMusicVolume()
-    {
-        musicVol.value = PlayerPrefs.GetFloat("MusicVol");
-        ChangeMusicVolume();
-    }
-
-    public void LoadSFXVolume()
-    {
-        sfxVol.value = PlayerPrefs.GetFloat("SFXVol");
-        ChangeSFXVolume();
+        AudioManager.instance.PlaySFXClip(clickSFX, transform);
     }
 }

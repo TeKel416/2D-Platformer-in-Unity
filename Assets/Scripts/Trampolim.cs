@@ -7,8 +7,9 @@ public class Trampolim : MonoBehaviour
     public float bounce = 35f;
     public float bounceDuration = 0.25f;
     private Animator anim;
+    public AudioClip trampolimSFX;
 
-    private void Awake()
+    private void Start()
     {
         anim = GetComponent<Animator>();
     }
@@ -20,6 +21,9 @@ public class Trampolim : MonoBehaviour
             collision.gameObject.GetComponent<PlayerController>().Push(transform.up * bounce, bounceDuration);
 
             anim.SetTrigger("jumped");
+
+            // play sfx
+            AudioManager.instance.PlayRandomPitchSFXClip(trampolimSFX, transform);
         }
     }
 }

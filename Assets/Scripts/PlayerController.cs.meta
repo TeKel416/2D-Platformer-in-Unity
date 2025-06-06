@@ -3,7 +3,19 @@ guid: d1daea6d17efbba4480566e65bf8f9d3
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - joystick: {instanceID: 0}
+  - anim: {instanceID: 0}
+  - animNormal: {instanceID: 0}
+  - animNoRight: {instanceID: 0}
+  - animNoLeft: {instanceID: 0}
+  - animNoJump: {instanceID: 0}
+  - groundCheck: {instanceID: 0}
+  - winSFX: {fileID: 8300000, guid: a2bfdcd56505ee54da54fe7d4d9b1c90, type: 3}
+  - dieSFX: {fileID: 8300000, guid: 4e057a34b089f6449bccc8c95d086582, type: 3}
+  - jumpSFX: {fileID: 8300000, guid: 0aa4fb6240dfd204b81529f22993e31c, type: 3}
+  - scareSFX: {fileID: 8300000, guid: 7f152bb37fe8ab04ab94bc93210c3eb9, type: 3}
+  - continueText: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

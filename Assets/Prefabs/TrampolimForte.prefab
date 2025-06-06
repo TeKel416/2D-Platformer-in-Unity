@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bounce: 35
   bounceDuration: 0.25
+  trampolimSFX: {fileID: 8300000, guid: abe08d9e82b43ca4c9303d61c58207c4, type: 3}
 --- !u!61 &8441741274396035098
 BoxCollider2D:
   m_ObjectHideFlags: 0
