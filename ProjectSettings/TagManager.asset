@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Caixa
   - BGMusic
+  - SFXManager
   layers:
   - Default
   - TransparentFX

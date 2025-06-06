@@ -8,8 +8,10 @@ public class Botao : MonoBehaviour
     public BoxCollider2D portaCollider;
     private Animator btnAnimator;
     private List<GameObject> buttonObjects = new List<GameObject>();
-    public AudioClip botaoSFX;
-    public AudioClip portaSFX;
+
+    // SFX
+    public AudioClip portaAbrindoSFX;
+    public AudioClip portaFechandoSFX;
 
     private void Start()
     {
@@ -24,15 +26,17 @@ public class Botao : MonoBehaviour
         }
         else
         {
+            if (!btnAnimator.GetBool("isPressed"))
+            {
+                // play sfx
+                AudioManager.instance.PlaySFXClip(portaAbrindoSFX, transform);
+            }
+
             portaAnimator.SetBool("isOpen", true);
             btnAnimator.SetBool("isPressed", true);
             portaCollider.enabled = false;
 
             buttonObjects.Add(collision.gameObject);
-
-            // play sfx
-            AudioManager.instance.PlaySFXClip(botaoSFX, transform);
-            AudioManager.instance.PlaySFXClip(portaSFX, transform);
         }
     }
 
@@ -47,7 +51,7 @@ public class Botao : MonoBehaviour
             portaCollider.enabled = true;
 
             // play sfx
-            AudioManager.instance.PlaySFXClip(portaSFX, transform, 1f, -1f);
+            AudioManager.instance.PlaySFXClip(portaFechandoSFX, transform);
         }
     }
 }

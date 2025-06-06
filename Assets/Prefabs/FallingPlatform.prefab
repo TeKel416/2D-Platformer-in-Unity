@@ -186,6 +186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posA: {fileID: 7477842184644316063}
   speed: 10
+  fallingSFX: {fileID: 8300000, guid: c49dda6826916c1439fe515f3a0ac4b8, type: 3}
 --- !u!1 &7477842184644316060
 GameObject:
   m_ObjectHideFlags: 0

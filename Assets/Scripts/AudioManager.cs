@@ -15,7 +15,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void PlaySFXClip(AudioClip audioClip, Transform spawnLocation, float volume = 1f, float pitch = -1f)
+    public void PlaySFXClip(AudioClip audioClip, Transform spawnLocation, float volume = 1f, float pitch = 1f)
     {
         // spawna um gameObject
         AudioSource audioSource = Instantiate(SFXObject, spawnLocation.position, Quaternion.identity);

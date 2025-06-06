@@ -191,6 +191,7 @@ MonoBehaviour:
   dieSFX: {fileID: 8300000, guid: 4e057a34b089f6449bccc8c95d086582, type: 3}
   jumpSFX: {fileID: 8300000, guid: 0aa4fb6240dfd204b81529f22993e31c, type: 3}
   scareSFX: {fileID: 8300000, guid: 7f152bb37fe8ab04ab94bc93210c3eb9, type: 3}
+  pickupSFX: {fileID: 8300000, guid: d86622042bd903d42b86a576eea2e8ea, type: 3}
   hasWon: 0
   continueText: {fileID: 0}
 --- !u!95 &2607010438300432871

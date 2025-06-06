@@ -127,6 +127,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   portaAnimator: {fileID: 461570926434790337}
   portaCollider: {fileID: 7122317147855650905}
+  portaAbrindoSFX: {fileID: 8300000, guid: fbc5690370978054a94259fc75138905, type: 3}
+  portaFechandoSFX: {fileID: 8300000, guid: 3f47575d63fab6d42a7bf087d42c1a95, type: 3}
 --- !u!95 &8159217146188040756
 Animator:
   serializedVersion: 5

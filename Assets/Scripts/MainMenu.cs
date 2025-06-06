@@ -49,6 +49,6 @@ public class MainMenu : MonoBehaviour
 
     public void PlayClickSFX()
     {
-        AudioManager.instance.PlaySFXClip(clickSFX, transform);
+        AudioManager.instance.PlaySFXClip(clickSFX, transform, 1, 0.95f);
     }
 }

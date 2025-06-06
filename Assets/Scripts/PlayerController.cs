@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
     public AudioClip dieSFX;
     public AudioClip jumpSFX;
     public AudioClip scareSFX;
+    public AudioClip pickupSFX;
 
     public bool hasWon;
     public GameObject continueText;
@@ -193,6 +194,8 @@ public class PlayerController : MonoBehaviour
     {
         canJump = canMoveLeft = canMoveRight = true;
         anim.runtimeAnimatorController = animNormal;
+        // play sfx coletavel
+        AudioManager.instance.PlaySFXClip(pickupSFX, transform);
     }
 
     // Morte
@@ -209,13 +212,13 @@ public class PlayerController : MonoBehaviour
     // Vencer
     public void Win()
     {
+        // play sfx
+        AudioManager.instance.PlaySFXClip(winSFX, transform);
+
         hasWon = true;
         anim.SetTrigger("win");
         player.Sleep();
         locked = true;
-
-        // play sfx
-        AudioManager.instance.PlaySFXClip(winSFX, transform);
 
         Invoke("ShowContinueText", 2.5f);
     }

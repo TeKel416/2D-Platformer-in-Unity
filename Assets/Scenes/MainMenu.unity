@@ -178,6 +178,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BGMusic
       objectReference: {fileID: 0}
+    - target: {fileID: 4175792170630530906, guid: 6bcf6f9d1f6daf94483fb2b82fa2aeaa, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bcf6f9d1f6daf94483fb2b82fa2aeaa, type: 3}
 --- !u!114 &61537511 stripped
@@ -853,7 +857,7 @@ MonoBehaviour:
   masterVol: {fileID: 61537511}
   musicVol: {fileID: 1630768028}
   sfxVol: {fileID: 721601026}
-  clickSFX: {fileID: 8300000, guid: 1fcc8980506273a41a47fd720e407f92, type: 3}
+  clickSFX: {fileID: 8300000, guid: cdfae265f69d49d43813691abc418fff, type: 3}
 --- !u!114 &220789725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2071,18 +2075,6 @@ MonoBehaviour:
           m_StringArgument: Level_2
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 220789724}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: PlayClickSFX
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &538737686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2902,6 +2894,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1983746496}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: PlayClickSFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &752192247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3676,6 +3680,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1983746496}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: PlayClickSFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &876166465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3808,18 +3824,6 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Level_1
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 220789724}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: PlayClickSFX
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &889542416
@@ -4133,6 +4137,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1983746496}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: PlayClickSFX
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5302,15 +5318,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3495235496287742883, guid: 697e16464fd2f034f9cb8d5bb0d07096, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.348197
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3495235496287742883, guid: 697e16464fd2f034f9cb8d5bb0d07096, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.5722294
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3495235496287742883, guid: 697e16464fd2f034f9cb8d5bb0d07096, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.7034351
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3495235496287742883, guid: 697e16464fd2f034f9cb8d5bb0d07096, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6007,6 +6023,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1983746496}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: PlayClickSFX
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7600,7 +7628,7 @@ MonoBehaviour:
   masterVol: {fileID: 6004847065783837901}
   musicVol: {fileID: 3958485489716623945}
   sfxVol: {fileID: 315173223895443570}
-  clickSFX: {fileID: 8300000, guid: 1fcc8980506273a41a47fd720e407f92, type: 3}
+  clickSFX: {fileID: 8300000, guid: cdfae265f69d49d43813691abc418fff, type: 3}
 --- !u!114 &1983746498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7935,6 +7963,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1983746496}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: PlayClickSFX
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -10243,6 +10283,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1983746496}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: PlayClickSFX
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

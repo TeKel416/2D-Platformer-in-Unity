@@ -3080,6 +3080,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3465297860505043988, guid: dcc92aa7699e1484599fc9979dcb71f7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3465297860505043988, guid: dcc92aa7699e1484599fc9979dcb71f7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1556213291}
+    - target: {fileID: 3465297860505043988, guid: dcc92aa7699e1484599fc9979dcb71f7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 3465297860505043988, guid: dcc92aa7699e1484599fc9979dcb71f7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: PlayClickSFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 3465297860505043988, guid: dcc92aa7699e1484599fc9979dcb71f7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3465297860505043988, guid: dcc92aa7699e1484599fc9979dcb71f7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: SettingsMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3465297860505043988, guid: dcc92aa7699e1484599fc9979dcb71f7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3465297860505043988, guid: dcc92aa7699e1484599fc9979dcb71f7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5293992379296295879, guid: dcc92aa7699e1484599fc9979dcb71f7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3104,6 +3136,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a47f546fc70ec8428172694e78e4288, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1556213291 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7682268690798424880, guid: dcc92aa7699e1484599fc9979dcb71f7, type: 3}
+  m_PrefabInstance: {fileID: 1556213288}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2264d6f6210926e45b02221a6f816c06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1603947021
@@ -3856,7 +3899,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1794233118856677510, guid: f6b6790617ac4c14d833b5b7cb5bac65, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 1794233118856677510, guid: f6b6790617ac4c14d833b5b7cb5bac65, type: 3}
       propertyPath: m_LocalRotation.w

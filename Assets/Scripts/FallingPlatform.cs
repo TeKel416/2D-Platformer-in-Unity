@@ -9,6 +9,9 @@ public class FallingPlatform : MonoBehaviour
     Vector3 targetPos;
     bool fall = false;
 
+    // SFX
+    public AudioClip fallingSFX;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,11 +34,13 @@ public class FallingPlatform : MonoBehaviour
             collision.transform.parent = this.transform;
         }
 
-#if !UNITY_ANDROID
-        Invoke("Fall", 0.15f);
-#else
-        Invoke("Fall", 0.2f);
-#endif
+        if (!fall) { 
+        #if !UNITY_ANDROID
+                Invoke("Fall", 0.15f);
+        #else
+                Invoke("Fall", 0.2f);
+        #endif
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -48,6 +53,8 @@ public class FallingPlatform : MonoBehaviour
 
     private void Fall()
     {
+        // play sfx
+        AudioManager.instance.PlaySFXClip(fallingSFX, transform);
         fall = true;
     }
 }

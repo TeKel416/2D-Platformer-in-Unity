@@ -9,6 +9,9 @@ public class Portal : MonoBehaviour
 
 	[SerializeField] private Transform destination;
 
+	// SFX
+	public AudioClip portalSFX;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (portalObjects.Contains (collision.gameObject))
@@ -22,9 +25,12 @@ public class Portal : MonoBehaviour
 		}
 
 		collision.transform.position = destination.position;
+
+		// play sfx
+		AudioManager.instance.PlaySFXClip(portalSFX, transform);
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+	private void OnTriggerExit2D(Collider2D collision)
     {
         portalObjects.Remove(collision.gameObject);
     }

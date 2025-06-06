@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destination: {fileID: 0}
+  portalSFX: {fileID: 8300000, guid: 5cf8d86c5eb151347801b6170b3b139f, type: 3}
 --- !u!70 &7580719133017961267
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

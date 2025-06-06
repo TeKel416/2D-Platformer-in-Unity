@@ -12,6 +12,22 @@ public class SettingsMenu : MonoBehaviour
     // SFX
     public AudioClip clickSFX;
 
+    private void Start()
+    {
+        if (PlayerPrefs.HasKey("MasterVol"))
+        {
+            masterVol.value = PlayerPrefs.GetFloat("MasterVol");
+        }
+        if (PlayerPrefs.HasKey("MusicVol"))
+        {
+            musicVol.value = PlayerPrefs.GetFloat("MusicVol");
+        }
+        if (PlayerPrefs.HasKey("SFXVol"))
+        {
+            sfxVol.value = PlayerPrefs.GetFloat("SFXVol");
+        }
+    }
+
     public void SetMasterVolume()
     {
         mainAudioMixer.SetFloat("MasterVol", Mathf.Log10(masterVol.value) * 20f);
